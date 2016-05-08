@@ -6,9 +6,9 @@ package com.gourderwa.cache;
 public class ApplicationCache {
 
     /**
-     * 图片保存本地路径
+     * pdf保存本地路径
      */
-    public static String imagesUploadAddress = null;
+    public static String pdfUploadAddress = null;
 
     private static boolean isInit = false;
 

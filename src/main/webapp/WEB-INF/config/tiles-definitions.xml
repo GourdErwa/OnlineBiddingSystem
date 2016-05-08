@@ -36,4 +36,38 @@
     </definition>
 
 
+    <!--招标首页-->
+    <definition name="layouts.application_layout.tender.showAllTenders" extends="layouts.public_layout">
+        <put-attribute name="main-container" value="/WEB-INF/pages/tender/showAllTenders.jsp"/>
+    </definition>
+    <!--招标管理-查看招标页-->
+    <definition name="layouts.application_layout.tender.showOneTender" extends="layouts.public_layout">
+        <put-attribute name="main-container" value="/WEB-INF/pages/tender/showOneTender.jsp"/>
+    </definition>
+    <!--招标管理-新建招标页-->
+    <definition name="layouts.application_layout.tender.createTender" extends="layouts.public_layout">
+        <put-attribute name="main-container" value="/WEB-INF/pages/tender/createTender.jsp"/>
+    </definition>
+    <!--招标管理-修改招标页-->
+    <definition name="layouts.application_layout.tender.updateTender" extends="layouts.public_layout">
+        <put-attribute name="main-container" value="/WEB-INF/pages/tender/updateTender.jsp"/>
+    </definition>
+
+    <!--招标首页-->
+    <definition name="layouts.application_layout.bid.showAllBids" extends="layouts.public_layout">
+        <put-attribute name="main-container" value="/WEB-INF/pages/bid/showAllBids.jsp"/>
+    </definition>
+    <!--招标管理-查看招标页-->
+    <definition name="layouts.application_layout.bid.showOneBid" extends="layouts.public_layout">
+        <put-attribute name="main-container" value="/WEB-INF/pages/bid/showOneBid.jsp"/>
+    </definition>
+    <!--招标管理-新建招标页-->
+    <definition name="layouts.application_layout.bid.createBid" extends="layouts.public_layout">
+        <put-attribute name="main-container" value="/WEB-INF/pages/bid/createBid.jsp"/>
+    </definition>
+    <!--招标管理-修改招标页-->
+    <definition name="layouts.application_layout.bid.updateBid" extends="layouts.public_layout">
+        <put-attribute name="main-container" value="/WEB-INF/pages/bid/updateBid.jsp"/>
+    </definition>
+
 </tiles-definitions>

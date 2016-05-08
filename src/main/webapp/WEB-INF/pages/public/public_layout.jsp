@@ -25,7 +25,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
 
-    <link href="<%=basePath%>resources/bootstrap/css/${sessionScope.themeSwitchover}/bootstrap.min.css"
+    <link href="<%=basePath%>resources/bootstrap/css/United/bootstrap.min.css"
           rel="stylesheet">
     <link href="<%=basePath%>resources/bootstrap/css/jumbotron-narrow.css" rel="stylesheet">
 

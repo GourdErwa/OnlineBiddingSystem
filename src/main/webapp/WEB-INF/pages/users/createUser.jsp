@@ -12,7 +12,7 @@
 %>
 <html>
 <head>
-    <title>用户管理-新建用户-<%=application.getAttribute("projectName")%>
+    <title>服务商管理-新建服务商-<%=application.getAttribute("projectName")%>
     </title>
     <style>
 
@@ -30,10 +30,10 @@
 
         <form class="form-horizontal">
             <div class="form-group">
-                <label for="userName" class="col-sm-2 control-label">用户名</label>
+                <label for="userName" class="col-sm-2 control-label">服务商名</label>
 
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="userName" placeholder="用户名">
+                    <input type="text" class="form-control" id="userName" placeholder="服务商名">
                 </div>
             </div>
             <div class="form-group">

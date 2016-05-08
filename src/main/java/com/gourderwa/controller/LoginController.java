@@ -64,7 +64,7 @@ public class LoginController {
         final HttpSession session = request.getSession();
         session.removeAttribute("users");
         session.removeAttribute("isAdmin");
-        return new ModelAndView("redirect:/home/goIndexPage");
+        return new ModelAndView("redirect:/index.jsp");
     }
 
 }

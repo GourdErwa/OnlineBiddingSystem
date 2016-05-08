@@ -19,12 +19,12 @@
             <div class="row placeholders">
                 <c:forEach var="candy" items="${candies}">
                     <div class="col-xs-6 col-sm-3 placeholder">
-                        <a href="<%=basePath%>candy/showOne?candyId=${candy.candyId}" class="thumbnail">
+                        <a href="<%=basePath%>candy/showOne?tenderId=${candy.tenderId}" class="thumbnail">
                             <img src="<%=basePath%>candy/downImage?downImageUrl=${candy.image}" class="img-rounded"
                                  alt="未知">
                         </a>
                         <div style="margin: 5px 0px 15px;">
-                            <p>${candy.candyName}</p>
+                            <p>${candy.tenderName}</p>
                             <span class="text-muted">类别:${candy.candyCategory.candyCategoryName}&nbsp;|&nbsp;销量:${candy.salesVolume}</span>
                         </div>
                     </div>

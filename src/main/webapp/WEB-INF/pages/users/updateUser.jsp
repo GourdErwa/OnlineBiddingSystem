@@ -13,7 +13,7 @@
 %>
 <html>
 <head>
-    <title>用户管理-修改用户-<%=application.getAttribute("projectName")%>
+    <title>用户管理-修改服务商-<%=application.getAttribute("projectName")%>
     </title>
 </head>
 <body>
@@ -25,11 +25,11 @@
 
             <span style="display:none" id="userId" readonly>${updateUsers.userId}</span>
             <div class="form-group">
-                <label for="userName" class="col-sm-2 control-label">用户名</label>
+                <label for="userName" class="col-sm-2 control-label">服务商名</label>
 
                 <div class="col-sm-10">
 
-                    <input type="text" class="form-control" id="userName"
+                    <input type="text" class="form-control" id="userName" readonly=true
                            value="${updateUsers.userName}">
                 </div>
             </div>
@@ -85,7 +85,7 @@
             $userName.attr("readonly", true);
         }
         $("#update").click(function () {
-            var userId ='${updateUsers.userId}';
+            var userId = '${updateUsers.userId}';
             var userName = $("#userName").val();
             var passWd = $("#passWd").val();
             var phone = $("#phone").val();
@@ -112,7 +112,6 @@
                 dataType: "json",
                 success: function (data) {
                     if (data.success) {
-                        window.location.href = "<%=basePath%>" + "users/goShowAllUsersIndexPage";
                         MSG.showSucceedMsg("修改成功！");
                     } else {
                         MSG.showErrorMsg("用户名已存在！");

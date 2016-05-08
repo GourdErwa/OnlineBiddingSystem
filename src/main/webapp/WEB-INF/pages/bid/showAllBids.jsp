@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: wei.Li
@@ -12,24 +13,27 @@
 %>
 <html>
 <head>
-    <title>服务商管理-${applicationScope.projectName}</title>
+    <title>招标公示-${applicationScope.projectName}</title>
     <jsp:include page="../public/datatables-bootstrap-js-css.jsp"/>
 </head>
 <body>
-
+<select id="state" class="form-control" style="width: 300px;margin-bottom: 10px;">
+    <option value="0">所有</option>
+    <option value="WaitForAudit">等待审核</option>
+    <option value="Bid">中标</option>
+    <option value="NotWinning">未中标</option>
+</select>
 <div>
-    <%--<button style="float: right;margin-bottom: 10px;" type="button" class="btn btn-info"
-            onclick="window.location.href='<%=basePath%>pages/users/goCreateUsersIndexPage'"
-    >新建用户
-    </button>--%>
-
     <table id="showTable" class="table table-striped" cellspacing="0" width="100%">
         <thead>
         <tr>
-            <th>服务商名</th>
-            <th>电话</th>
-            <th>邮箱</th>
-            <th>地址</th>
+            <th>项目编号</th>
+            <th>招标名称</th>
+            <th>投标服务商</th>
+            <th>投标状态</th>
+            <th>投标说明</th>
+            <th>投标时间</th>
+            <th>操作</th>
         </tr>
         </thead>
     </table>
@@ -59,10 +63,13 @@
             }
         },
         "columns": [
-            {"data": "userName"},
-            {"data": "phone"},
-            {"data": "email"},
-            {"data": "userId"}
+            {"data": "bidId"},
+            {"data": "tender.tenderName"},
+            {"data": "users.userName"},
+            {"data": "stateChina"},
+            {"data": "explainContent"},
+            {"data": "createTime"},
+            {"data": "bidId"}
         ],
         "columnDefs": [
             {
@@ -83,15 +90,35 @@
                 },
                 "targets": 2
             },
-
+            {
+                "render": function (data, type, row) {
+                    return data;
+                },
+                "targets": 3
+            }, {
+                "render": function (data, type, row) {
+                    return data;
+                },
+                "targets": 4
+            }, {
+                "render": function (data, type, row) {
+                    return data;
+                },
+                "targets": 5
+            },
             {
                 "render": function (data, type, row) {
                     return "<button  type=\"button\" class=\"btn btn-warning btn-xs\" " +
-                            "onclick=\"window.location.href ='<%=basePath%>users/goUpdateUsersIndexPage?usersId=" + data + "'\">修改</button>" +
-                            "&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-danger btn-xs js-del\" usersId=" + data + ">删除</button>";
+                            "onclick=\"window.open('<%=basePath%>bid/showOneBid?bidId=" + data + "')\">查看</button>&nbsp;&nbsp;"
+                            <c:if test="${sessionScope.get('isAdmin') != null}">
+                            + "<button  type=\"button\" class=\"btn btn-warning btn-xs\" " +
+                            "onclick=\"window.open('<%=basePath%>bid/goUpdatePage?bidId=" + data + "')\">修改</button>" +
+                            "&nbsp;&nbsp;<button type=\"button\" class=\"btn btn-danger btn-xs js-del\" bidId=" + data + ">删除</button>"
+                            </c:if>
+                            ;
                 },
                 "orderable": false,
-                "targets": 3
+                "targets": 6
             }
         ]
     };
@@ -105,13 +132,13 @@
         var delRegister = function () {
             $showTable.find(" tbody").on('click', 'tr .js-del', function () {
                 var $2 = $(this);
-                var usersId = $2.attr("usersId");
+                var tenderId = $2.attr("bidId");
                 $2.parent().parent().addClass("js-del-tr");
                 $.ajax({
                     type: "POST",
-                    url: "<%=basePath%>" + "users/deleteUser",
+                    url: "<%=basePath%>" + "bid/delete",
                     data: {
-                        "usersId": usersId
+                        "tenderId": tenderId
                     },
                     dataType: "json",
                     success: function (data) {
@@ -127,22 +154,21 @@
             });
         };
 
-        /**
-         * 获取所有用户数据展示
-         */
-        $.ajax({
-            type: "POST",
-            url: "<%=basePath%>" + "users/searchUsers",
-            data: {},
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-                dataTableSetting.data = data.data;
-                table = $showTable.DataTable(dataTableSetting);
-                delRegister();
-            }
-        });
 
+        dataTableSetting.data = eval('${tenders}');
+        table = $showTable.DataTable(dataTableSetting);
+        delRegister();
+
+        var settingState = '${state}';
+        if (settingState) {
+            $("#state").val(settingState);
+        } else {
+            $("#state").val("0");
+        }
+        $("#state").on("change", function () {
+            var state = $(this).val();
+            window.location.href = "<%=basePath%>" + "bid/goIndexPage?state=" + state;
+        });
     });
 
 </script>

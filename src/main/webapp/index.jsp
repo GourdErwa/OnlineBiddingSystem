@@ -18,7 +18,7 @@
 </head>
 
 <body>
-<%response.sendRedirect(basePath + "home/goIndexPage");%>
+<%response.sendRedirect(basePath + "tender/goIndexPage");%>
 </body>
 </html>
 

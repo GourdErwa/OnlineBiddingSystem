@@ -7,9 +7,14 @@ springMvc4 + hibernate5 + maven 构建
 
 3.配置文件见 src/resources 目录 
 
-    springMvc 以 location="classpath:*-gourderwa.properties" 装载配置,若修改配置文件名称对应修改此处
+    1.springMvc 以 location="classpath:*-gourderwa.properties" 装载配置,若修改配置文件名称对应修改此处
     
-    指定 ehcache.xml 中 diskStore path 存储目录
+    2.指定 ehcache.xml 中 diskStore path 存储目录
     
-    数据库连接 jdbc-hibernate-config-gourderwa.properties
+    3.数据库连接配置见 jdbc-hibernate-config-gourderwa.properties
+
+    4.jdbc-hibernate-config-gourderwa.properties 中默认hibernate.hbm2ddl.auto=create ，如做好demo数据后请修改为validate
     
+    5.将doc中文件放置于 pdfUploadAddress 配置目录下，项目启动后自动设置为demo数据文件
+
+    6.修改project-gourderwa.properties配置文件内容与预期一致

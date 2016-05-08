@@ -9,16 +9,13 @@ public enum ActiveMenu {
 
 
     homeMenu,
-    candyMenu,
-    manageCandy,
-    customizationMenu,
+    tenderMenu,
+    bidMenu,
+    createTender,
     usersMenu,
 
-    orderFormManage,
-    myOrderForm,
     myMenu,
-    loginMenu,
-    registerMenu
+    registerMenu, loginMenu
 
 
 }

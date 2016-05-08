@@ -1,6 +1,7 @@
 package com.gourderwa.service;
 
 import com.gourderwa.cache.ApplicationCache;
+import com.gourderwa.entity.Tender;
 import com.gourderwa.entity.Users;
 import com.gourderwa.initdata.initSystemDatas;
 import org.hibernate.criterion.DetachedCriteria;
@@ -22,10 +23,12 @@ public class ProjectPropertiesService {
     private String projectName;
     @Value("${projectVersion}")
     private String projectVersion;
+    @Value("${projectAuthor}")
+    private String projectAuthor;
     @Value("${isInsertDemoData}")
     private boolean isInsertDemoData;
-    @Value("${imagesUploadAddress}")
-    private String imagesUploadAddress;
+    @Value("${pdfUploadAddress}")
+    private String pdfUploadAddress;
 
     @Resource
     private HibernateTemplate hibernateTemplate;
@@ -38,10 +41,13 @@ public class ProjectPropertiesService {
         return projectVersion;
     }
 
+    public String getProjectAuthor() {
+        return projectAuthor;
+    }
+
     public void initCacheData() {
 
-
-        ApplicationCache.imagesUploadAddress = imagesUploadAddress;
+        ApplicationCache.pdfUploadAddress = pdfUploadAddress;
     }
 
     /**
@@ -68,7 +74,13 @@ public class ProjectPropertiesService {
             for (Users users : initSystemDatas.getUsers()) {
                 hibernateTemplate.save(users);
             }
-
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+        try {
+            for (Tender tender : initSystemDatas.getTenders()) {
+                hibernateTemplate.save(tender);
+            }
         } catch (DataAccessException e) {
             e.printStackTrace();
         }
