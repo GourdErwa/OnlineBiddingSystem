@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>39e42705-b72c-4ff5-97cc-dcf81e546501</OriginalElement>
+  <nodes>
+    <node x="87.5" y="490.0">39e42705-b72c-4ff5-97cc-dcf81e546501.TABLE:OnlineBiddingSystem.bid</node>
+    <node x="0.0" y="234.0">39e42705-b72c-4ff5-97cc-dcf81e546501.TABLE:OnlineBiddingSystem.tender</node>
+    <node x="401.5" y="0.0">39e42705-b72c-4ff5-97cc-dcf81e546501.TABLE:OnlineBiddingSystem.hibernate_sequence</node>
+    <node x="94.0" y="0.0">39e42705-b72c-4ff5-97cc-dcf81e546501.TABLE:OnlineBiddingSystem.users</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="39e42705-b72c-4ff5-97cc-dcf81e546501.TABLE:OnlineBiddingSystem.bid" target="39e42705-b72c-4ff5-97cc-dcf81e546501.TABLE:OnlineBiddingSystem.tender">
+      <point x="-67.25" y="-103.0" />
+      <point x="154.75" y="465.0" />
+      <point x="144.5" y="465.0" />
+      <point x="0.0" y="103.0" />
+    </edge>
+    <edge source="39e42705-b72c-4ff5-97cc-dcf81e546501.TABLE:OnlineBiddingSystem.bid" target="39e42705-b72c-4ff5-97cc-dcf81e546501.TABLE:OnlineBiddingSystem.users">
+      <point x="67.25" y="-103.0" />
+      <point x="289.25" y="465.0" />
+      <point x="299.5" y="465.0" />
+      <point x="299.5" y="209.0" />
+      <point x="286.0" y="209.0" />
+      <point x="64.0" y="92.0" />
+    </edge>
+    <edge source="39e42705-b72c-4ff5-97cc-dcf81e546501.TABLE:OnlineBiddingSystem.tender" target="39e42705-b72c-4ff5-97cc-dcf81e546501.TABLE:OnlineBiddingSystem.users">
+      <point x="0.0" y="-103.0" />
+      <point x="144.5" y="209.0" />
+      <point x="158.0" y="209.0" />
+      <point x="-64.0" y="92.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7723463687150838" x="286.0" y="348.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+

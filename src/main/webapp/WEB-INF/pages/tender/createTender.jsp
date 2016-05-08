@@ -23,7 +23,7 @@
     </style>
 </head>
 <body>
-<div class="container" style="width:50%">
+<div class="container" style="width:70%">
     <%--<jsp:include page="./../public/nav.jsp"/>--%>
     <div>
 
