@@ -11,7 +11,7 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <head>
-    <title>服务商管理-新建服务商-<%=application.getAttribute("projectName")%>
+    <title>发布招标信息-<%=application.getAttribute("projectName")%>
     </title>
     <style>
 
