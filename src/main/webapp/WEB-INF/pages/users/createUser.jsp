@@ -109,7 +109,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "<%=basePath%>" + "users/createUser",
+                url: "<%=basePath%>" + "users/createUsers",
                 data: {
                     "method": "createUser",
                     "userName": userName,
